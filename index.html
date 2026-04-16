@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechStore - Toko komputer terlengkap dengan harga terbaik. Laptop, PC, aksesoris, dan layanan purna jual terpercaya.">
+    <meta name="keywords" content="toko komputer, laptop, PC, aksesoris komputer, gaming laptop">
+    <title>TechStore - Toko Komputer & Elektronik</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" id="company-logo">
+                    <img src="" alt="Logo" class="logo-img" id="logo-img" style="display: none;">
+                    <h1 id="company-name">TechStore</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#home">Beranda</a>
+                    <a href="#products">Produk</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#contact">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-banner" id="hero-banner">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-title">Solusi Komputer & Teknologi Terlengkap</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">Dapatkan laptop, PC, dan aksesoris berkualitas tinggi dengan harga terbaik dan pelayanan profesional</p>
+                    <a href="#products" class="btn btn-primary">Jelajahi Produk →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text" id="about-text">
+                    <p>Memuat informasi...</p>
+                </div>
+                <div class="about-info" id="company-info">
+                    <div class="info-card">
+                        <h3>Alamat</h3>
+                        <p id="company-address">-</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Kontak</h3>
+                        <div id="company-contact">
+                            <p>-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vision & Mission -->
+            <div class="vision-mission" id="vision-mission">
+                <div class="vm-card">
+                    <h3>Visi</h3>
+                    <p id="company-vision">-</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Misi</h3>
+                    <div id="company-mission">
+                        <p>-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk Kami</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here dynamically -->
+                <div class="product-skeleton">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text short"></div>
+                </div>
+                <div class="product-skeleton">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text short"></div>
+                </div>
+                <div class="product-skeleton">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text short"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-info" id="contact-info">
+                    <p>Loading contact information...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p id="footer-text">&copy; 2026 TechStore. All rights reserved.</p>
+            <p class="powered-by">Powered by Supabase CMS Engine</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

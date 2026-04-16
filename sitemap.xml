@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap - Helps search engines discover your pages -->
+<!-- Place at: https://yourdomain.com/sitemap.xml -->
+<!-- Update <lastmod> dates when content changes -->
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Products Section -->
+  <url>
+    <loc>https://yourdomain.com/#products</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About/Features Section -->
+  <url>
+    <loc>https://yourdomain.com/#features</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Testimonials Section -->
+  <url>
+    <loc>https://yourdomain.com/#testimonials</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://yourdomain.com/#contact</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Add more URLs as your site grows -->
+  <!-- Example: Individual product pages -->
+  <!--
+  <url>
+    <loc>https://yourdomain.com/product/gaming-laptop-asus-rog</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  -->
+
+</urlset>

@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title id="page-title">TechStore - Future of Computing</title>
+    <meta name="title" content="TechStore - Future of Computing" id="meta-title">
+    <meta name="description" content="Experience the future of technology. Premium computers, gaming rigs, and tech accessories." id="meta-description">
+    <meta name="keywords" content="computer, laptop, gaming, PC, teknologi, toko komputer, gaming rig, accessories" id="meta-keywords">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="author" content="TechStore" id="meta-author">
+    <link rel="canonical" href="https://yourdomain.com/" id="canonical-url">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/" id="og-url">
+    <meta property="og:title" content="TechStore - Future of Computing" id="og-title">
+    <meta property="og:description" content="Experience the future of technology. Premium computers, gaming rigs, and tech accessories." id="og-description">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg" id="og-image">
+    <meta property="og:site_name" content="TechStore" id="og-sitename">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/" id="twitter-url">
+    <meta property="twitter:title" content="TechStore - Future of Computing" id="twitter-title">
+    <meta property="twitter:description" content="Experience the future of technology. Premium computers, gaming rigs, and tech accessories." id="twitter-description">
+    <meta property="twitter:image" content="https://yourdomain.com/og-image.jpg" id="twitter-image">
+    
+    <!-- Favicon - Temporary inline SVG (replace with actual favicon.ico later) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0e27'/%3E%3Ctext x='50' y='50' font-family='Arial' font-size='60' font-weight='bold' fill='%2300f3ff' text-anchor='middle' dominant-baseline='central'%3ETC%3C/text%3E%3C/svg%3E">
+    <!-- Replace /favicon.ico when you have the actual file -->
+    <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" id="schema-organization">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "TechStore",
+      "description": "Premium computing solutions and technology products",
+      "url": "https://yourdomain.com",
+      "logo": "https://yourdomain.com/logo.png",
+      "image": "https://yourdomain.com/og-image.jpg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "info@techstore.com"
+      },
+      "sameAs": []
+    }
+    </script>
+    
+    <script type="application/ld+json" id="schema-website">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TechStore",
+      "url": "https://yourdomain.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourdomain.com/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151a35;
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff006e;
+            --neon-purple: #8b5cf6;
+            --neon-green: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #a3b3d4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at top left, rgba(0, 243, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(255, 0, 110, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: bgShift 15s ease infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 1rem 0;
+            background: rgba(10, 14, 39, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 243, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-pink) 50%, var(--neon-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 50%;
+            right: 30%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(0, 243, 255, 0.05);
+            border-color: var(--neon-cyan);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 243, 255, 0.2);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 8rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 243, 255, 0.2);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neon-cyan);
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        /* Products Container - Max Height */
+        .products-container {
+            max-height: 900px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            width: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 50px rgba(0, 243, 255, 0.25);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .product-content {
+            padding: 1rem;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.65rem;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.6em;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 0.85rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 2.2em;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            border-color: transparent;
+        }
+
+        .pagination-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0 1rem;
+        }
+
+        /* View Button */
+        .btn-view {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-view:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Product Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 243, 255, 0.2);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 110, 0.2);
+            border: 1px solid var(--neon-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+        }
+
+        .modal-close:hover {
+            background: var(--neon-pink);
+            color: var(--bg-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .modal-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-product-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+        }
+
+        .modal-product-title {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .modal-product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-product-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+            margin: 0.5rem 0;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        /* Additional Sections - Dynamic */
+        .additional-section {
+            position: relative;
+        }
+
+        .additional-section:nth-child(odd) {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--neon-cyan);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--neon-cyan);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        /* Info Cards (for warranty, benefits, etc) */
+        .info-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .info-card-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .info-card-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.2);
+        }
+
+        .info-card-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .info-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-card-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Info Cards Responsive - Shopee Style */
+        @media (max-width: 968px) {
+            .info-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .info-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .info-card-item {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            .info-card-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .info-card-title {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .info-card-description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .btn-view {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-cards-grid {
+                gap: 0.5rem;
+            }
+
+            .info-card-item {
+                padding: 0.75rem;
+            }
+
+            .info-card-icon {
+                font-size: 1.75rem;
+            }
+
+            .info-card-title {
+                font-size: 0.85rem;
+            }
+
+            .info-card-description {
+                font-size: 0.75rem;
+            }
+
+            .btn-view {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.7rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Features Grid Responsive - Shopee Style */
+        @media (max-width: 968px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .feature-card {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            .feature-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .feature-title {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .feature-description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .btn-view {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                gap: 0.5rem;
+            }
+
+            .feature-card {
+                padding: 0.75rem;
+            }
+
+            .feature-icon {
+                font-size: 1.75rem;
+            }
+
+            .feature-title {
+                font-size: 0.85rem;
+            }
+
+            .feature-description {
+                font-size: 0.75rem;
+            }
+
+            .btn-view {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Testimonials Grid Responsive - Shopee Style */
+        @media (max-width: 968px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .testimonial-card {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            .testimonial-quote {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .author-info h4 {
+                font-size: 0.9rem;
+            }
+
+            .author-info p {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonials-grid {
+                gap: 0.5rem;
+            }
+
+            .testimonial-card {
+                padding: 0.75rem;
+            }
+
+            .testimonial-quote {
+                font-size: 0.8rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .author-avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .author-info h4 {
+                font-size: 0.85rem;
+            }
+
+            .author-info p {
+                font-size: 0.7rem;
+            }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-cyan);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(0, 243, 255, 0.2);
+            border-top-color: var(--neon-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scroll Reveal Animation */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-reveal].revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            /* Products Grid - Tablet */
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .product-image {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Products Grid - Mobile (Shopee-style) */
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .product-card {
+                border-radius: 12px;
+            }
+            
+            .product-image {
+                height: 140px;
+            }
+            
+            .product-content {
+                padding: 0.65rem;
+            }
+            
+            .product-badge {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.6rem;
+                margin-bottom: 0.4rem;
+            }
+            
+            .product-title {
+                font-size: 0.85rem;
+                margin-bottom: 0.35rem;
+                min-height: 2.4em;
+            }
+            
+            .product-description {
+                font-size: 0.7rem;
+                margin-bottom: 0.5rem;
+                min-height: 1.8em;
+                -webkit-line-clamp: 1;
+            }
+            
+            .product-price {
+                font-size: 0.75rem;
+            }
+            
+            /* Search bar mobile */
+            .search-container {
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-input {
+                padding: 0.75rem 2.5rem 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Pagination mobile */
+            .pagination {
+                gap: 0.4rem;
+                margin-top: 2rem;
+            }
+            
+            .pagination-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .pagination-info {
+                font-size: 0.8rem;
+                margin: 0 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small mobile - ultra compact */
+            .product-image {
+                height: 120px;
+            }
+            
+            .product-title {
+                font-size: 0.8rem;
+            }
+            
+            .product-price {
+                font-size: 0.75rem;
+            }
+            
+            .btn-view {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border: 3px solid rgba(37, 211, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            border-color: rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-button svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            color: #128c7e;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-button {
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-button svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+
+            /* Modal Responsive */
+            .modal-body {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            .modal-product-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-product-price {
+                font-size: 1.5rem;
+            }
+
+            .modal-image-container {
+                max-height: 300px;
+            }
+
+            .modal-product-description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animated"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Initializing...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav-content">
+                <div class="logo" id="company-name">TECHSTORE</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-reveal>
+                    <h1>
+                        <span class="gradient-text" id="hero-title">Future of Computing Starts Here</span>
+                    </h1>
+                    <p id="hero-subtitle">
+                        Experience cutting-edge technology with our premium collection of computers, gaming rigs, and accessories. Built for creators, gamers, and professionals.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#products" class="btn btn-primary">
+                            Explore Gear →
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-title">Performance</div>
+                        <div class="card-value">3.8GHz+</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">🎮</div>
+                        <div class="card-title">Gaming Ready</div>
+                        <div class="card-value">RTX 40XX</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">💾</div>
+                        <div class="card-title">Storage</div>
+                        <div class="card-value">2TB NVMe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="section-label">Why Choose Us</div>
+                <h2 class="section-title">Built for Performance</h2>
+                <p class="section-subtitle">Premium hardware meets unbeatable service. Every component, carefully selected.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-reveal>
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Blazing Fast</h3>
+                    <p class="feature-description">Latest generation processors and GPUs. Experience zero compromise performance for work and play.</p>
+                </div>
+                <div class="feature-card" data-reveal>
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Warranty Guaranteed</h3>
+                    <p class="feature-description">Official manufacturer warranty on all products. Plus extended support from our expert team.</p>
+                </div>
+                <div class="feature-card" data-reveal>
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Premium Quality</h3>
+                    <p class="feature-description">100% authentic products from authorized distributors. No compromises on quality.</p>
+                </div>
+                <div class="feature-card" data-reveal>
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Expert Support</h3>
+                    <p class="feature-description">Free consultation and post-sales service. Our tech team is always ready to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="section-label">Our Collection</div>
+                <h2 class="section-title">Premium Tech Arsenal</h2>
+                <p class="section-subtitle">Curated selection of the finest computing hardware</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container" data-reveal>
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="product-search" 
+                        placeholder="Search products..."
+                        onkeyup="searchProducts(this.value)"
+                    >
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be loaded dynamically -->
+                    <div class="product-card" data-reveal>
+                        <img src="https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?w=400" alt="Product" class="product-image">
+                        <div class="product-content">
+                            <span class="product-badge">Loading</span>
+                            <h3 class="product-title">Loading Products...</h3>
+                            <p class="product-description">Please wait...</p>
+                            <div class="product-footer">
+                                <span class="product-price">---</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- No Results Message -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <h3>No Products Found</h3>
+                    <p>Try adjusting your search terms</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">Loved by Enthusiasts</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"Pelayanan luar biasa! Setup gaming rig impian saya dengan bantuan tim yang sangat expert. Worth every penny!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Andi Wijaya</h4>
+                            <p>Professional Gamer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"Laptop workstation untuk editing video dan 3D rendering. Performance top tier, harga kompetitif. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Content Creator</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"Upgrade PC kantor untuk tim development. Fast delivery, professional installation. Great experience overall!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">B</div>
+                        <div class="author-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Tech Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact" data-reveal>
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to <span class="gradient-text">Upgrade</span>?</h2>
+                <p>Join thousands of satisfied customers. Get expert consultation and find your perfect setup today.</p>
+                <div class="cta-group">
+                    <a href="#products" class="btn btn-primary">Shop Now →</a>
+                    <a href="#" id="cta-whatsapp" class="btn btn-secondary" style="display: none;">WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="gradient-text" id="footer-company-name">TechStore</h4>
+                    <p style="color: var(--text-secondary);">Premium computing solutions for everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li id="footer-address">Loading...</li>
+                        <li id="footer-phone">Phone: ---</li>
+                        <li id="footer-email">Email: ---</li>
+                        <li id="footer-whatsapp" style="display: none;"><a href="#" target="_blank">WhatsApp: ---</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul class="footer-links" id="footer-social">
+                        <li><a href="#">Loading...</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> <span id="footer-copyright">TechStore</span>. Built with Supabase CMS Engine.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" id="whatsapp-float" style="display: none;">
+        <span class="whatsapp-tooltip">Chat dengan kami</span>
+        <a href="#" id="whatsapp-link" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.155 1.383 1.383-5.142-0.32-0.527c-1.334-2.197-2.037-4.73-2.037-7.353 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62c0 7.51-6.11 13.62-13.62 13.62zM21.305 18.694c-0.372-0.186-2.197-1.083-2.537-1.206s-0.588-0.186-0.835 0.186c-0.248 0.372-0.959 1.206-1.175 1.454s-0.433 0.279-0.805 0.093c-0.372-0.186-1.571-0.579-2.991-1.845-1.106-0.986-1.852-2.202-2.067-2.574s-0.022-0.573 0.163-0.758c0.167-0.166 0.372-0.433 0.558-0.65s0.248-0.372 0.372-0.619 0.062-0.465-0.031-0.65c-0.093-0.186-0.835-2.010-1.145-2.753-0.302-0.724-0.609-0.625-0.835-0.637-0.217-0.011-0.465-0.013-0.713-0.013s-0.65 0.093-0.99 0.465c-0.341 0.372-1.301 1.270-1.301 3.096s1.332 3.589 1.518 3.837c0.186 0.248 2.625 4.006 6.359 5.617 0.888 0.383 1.581 0.612 2.122 0.783 0.892 0.283 1.704 0.243 2.345 0.147 0.715-0.107 2.197-0.898 2.507-1.766s0.31-1.611 0.217-1.766c-0.093-0.155-0.341-0.248-0.713-0.433z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="product-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductModal()">×</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="" alt="Product" class="modal-product-image" id="modal-image">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-product-badge" id="modal-badge">Available</span>
+                    <h2 class="modal-product-title" id="modal-title">Product Name</h2>
+                    <div class="modal-divider"></div>
+                    <div class="modal-product-price" id="modal-price">Rp 0</div>
+                    <div class="modal-divider"></div>
+                    <p class="modal-product-description" id="modal-description">Product description goes here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Config & App Scripts -->
+    <script src="config.js"></script>
+    <script>
+        // ===== Supabase Integration =====
+        const { createClient } = supabase;
+        let supabaseClient = null;
+        let appData = {
+            company: null,
+            profile: null,
+            offerings: [],
+            additionalSections: [],
+            filteredProducts: [],
+            currentPage: 1,
+            itemsPerPage: 8
+        };
+
+        // Initialize
+        async function init() {
+            try {
+                // Check if running from file:// protocol
+                if (window.location.protocol === 'file:') {
+                    console.warn('⚠️ PERINGATAN: Website dibuka via file:// protocol');
+                    console.warn('📍 Google Maps dan beberapa fitur mungkin tidak berfungsi');
+                    console.warn('✅ SOLUSI: Gunakan local web server');
+                    console.warn('   Cara 1: python -m http.server 8000');
+                    console.warn('   Cara 2: Live Server extension di VS Code');
+                    console.warn('   Kemudian buka: http://localhost:8000');
+                }
+                
+                // Init Supabase
+                if (window.SUPABASE_CONFIG?.url && window.SUPABASE_CONFIG?.anonKey) {
+                    supabaseClient = createClient(
+                        window.SUPABASE_CONFIG.url,
+                        window.SUPABASE_CONFIG.anonKey
+                    );
+                    
+                    await fetchData();
+                    renderUI();
+                }
+                
+                hideLoading();
+                initScrollReveal();
+                initHeaderScroll();
+            } catch (error) {
+                console.error('Init error:', error);
+                hideLoading();
+            }
+        }
+
+        async function fetchData() {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('companies')
+                    .select('*, company_profiles(*)')
+                    .eq('company_code', window.COMPANY_CODE || 'techstore-001')
+                    .single();
+
+                if (!error && data) {
+                    appData.company = data;
+                    appData.profile = data.company_profiles;
+                    
+                    const { data: offerings } = await supabaseClient
+                        .from('offerings')
+                        .select('*')
+                        .eq('company_id', data.id)
+                        .eq('is_active', true)
+                        .order('display_order');
+                    
+                    appData.offerings = offerings || [];
+                    
+                    // Fetch additional sections
+                    const { data: sections } = await supabaseClient
+                        .from('additional_sections')
+                        .select('*')
+                        .eq('company_id', data.id)
+                        .order('display_order');
+                    
+                    appData.additionalSections = sections || [];
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        }
+
+        function updateSEO(profile, offerings) {
+            if (!profile) return;
+            
+            const companyName = profile.display_name || 'TechStore';
+            const tagline = profile.tagline || 'Premium Computing Solutions';
+            const description = profile.description || 'Experience the future of technology. Premium computers, gaming rigs, and tech accessories.';
+            const contact = profile.contact_info || {};
+            const branding = profile.branding || {};
+            const currentUrl = window.location.href;
+            
+            // Update page title
+            const pageTitle = `${companyName} - ${tagline}`;
+            document.getElementById('page-title').textContent = pageTitle;
+            document.getElementById('meta-title').setAttribute('content', pageTitle);
+            
+            // Update meta description
+            const metaDesc = description.substring(0, 160); // Max 160 chars for SEO
+            document.getElementById('meta-description').setAttribute('content', metaDesc);
+            
+            // Update keywords based on products
+            let keywords = 'computer, laptop, gaming, PC, teknologi, toko komputer';
+            if (offerings && offerings.length > 0) {
+                const productKeywords = offerings.slice(0, 5).map(p => p.title).join(', ');
+                keywords = `${keywords}, ${productKeywords}`;
+            }
+            document.getElementById('meta-keywords').setAttribute('content', keywords);
+            
+            // Update author
+            document.getElementById('meta-author').setAttribute('content', companyName);
+            
+            // Update canonical URL
+            document.getElementById('canonical-url').setAttribute('href', currentUrl);
+            
+            // Update Open Graph tags
+            document.getElementById('og-url').setAttribute('content', currentUrl);
+            document.getElementById('og-title').setAttribute('content', pageTitle);
+            document.getElementById('og-description').setAttribute('content', metaDesc);
+            document.getElementById('og-sitename').setAttribute('content', companyName);
+            
+            // Update OG image if logo exists
+            if (branding.logo_url) {
+                let logoUrl = branding.logo_url;
+                if (!logoUrl.startsWith('http') && window.supabaseClient) {
+                    logoUrl = window.supabaseClient.storage
+                        .from('company-assets')
+                        .getPublicUrl(logoUrl).data.publicUrl;
+                }
+                document.getElementById('og-image').setAttribute('content', logoUrl);
+                document.getElementById('twitter-image').setAttribute('content', logoUrl);
+            }
+            
+            // Update Twitter Card tags
+            document.getElementById('twitter-url').setAttribute('content', currentUrl);
+            document.getElementById('twitter-title').setAttribute('content', pageTitle);
+            document.getElementById('twitter-description').setAttribute('content', metaDesc);
+            
+            // Update JSON-LD Organization Schema
+            const orgSchema = {
+                "@context": "https://schema.org",
+                "@type": "Store",
+                "name": companyName,
+                "description": description,
+                "url": currentUrl,
+                "logo": branding.logo_url || "https://yourdomain.com/logo.png",
+                "image": branding.banner_url || branding.logo_url || "https://yourdomain.com/og-image.jpg",
+                "priceRange": "$$",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": profile.address || "",
+                    "addressCountry": "ID"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Service",
+                    "telephone": contact.phone || "",
+                    "email": contact.email || ""
+                },
+                "sameAs": []
+            };
+            
+            // Add social media to sameAs
+            if (contact.instagram) {
+                const igUsername = contact.instagram.replace('@', '');
+                orgSchema.sameAs.push(`https://instagram.com/${igUsername}`);
+            }
+            if (contact.facebook) {
+                orgSchema.sameAs.push(contact.facebook.startsWith('http') ? contact.facebook : `https://facebook.com/${contact.facebook.replace('@', '')}`);
+            }
+            if (contact.twitter) {
+                orgSchema.sameAs.push(`https://twitter.com/${contact.twitter.replace('@', '')}`);
+            }
+            if (contact.youtube) {
+                orgSchema.sameAs.push(contact.youtube.startsWith('http') ? contact.youtube : `https://youtube.com/@${contact.youtube}`);
+            }
+            if (contact.linkedin) {
+                orgSchema.sameAs.push(contact.linkedin.startsWith('http') ? contact.linkedin : `https://linkedin.com/in/${contact.linkedin}`);
+            }
+            
+            document.getElementById('schema-organization').textContent = JSON.stringify(orgSchema, null, 2);
+            
+            // Update Website Schema
+            const websiteSchema = {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": companyName,
+                "url": currentUrl,
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": `${currentUrl}?search={search_term_string}`,
+                    "query-input": "required name=search_term_string"
+                }
+            };
+            
+            document.getElementById('schema-website').textContent = JSON.stringify(websiteSchema, null, 2);
+        }
+
+        function renderUI() {
+            const profile = appData.profile;
+            
+            if (profile) {
+                // Update company name
+                const name = profile.display_name || 'TechStore';
+                document.getElementById('company-name').textContent = name;
+                document.getElementById('footer-company-name').textContent = name;
+                document.getElementById('footer-copyright').textContent = name;
+                
+                // Update hero section
+                const heroTitle = document.getElementById('hero-title');
+                const heroSubtitle = document.getElementById('hero-subtitle');
+                
+                if (heroTitle && profile.tagline) {
+                    heroTitle.textContent = profile.tagline;
+                }
+                
+                if (heroSubtitle && profile.description) {
+                    heroSubtitle.textContent = profile.description;
+                }
+                
+                // Update contact
+                const contact = profile.contact_info || {};
+                const phoneEl = document.getElementById('footer-phone');
+                const emailEl = document.getElementById('footer-email');
+                const addressEl = document.getElementById('footer-address');
+                const whatsappEl = document.getElementById('footer-whatsapp');
+                
+                if (phoneEl && contact.phone) phoneEl.textContent = `Phone: ${contact.phone}`;
+                if (emailEl && contact.email) emailEl.textContent = `Email: ${contact.email}`;
+                if (addressEl && profile.address) addressEl.textContent = profile.address;
+                
+                // WhatsApp in footer (optional display)
+                if (whatsappEl && contact.whatsapp) {
+                    const waNumber = contact.whatsapp.replace(/[\s\-\+]/g, '');
+                    let formattedWA = waNumber;
+                    if (!waNumber.startsWith('62')) {
+                        formattedWA = waNumber.startsWith('0') ? '62' + waNumber.substring(1) : '62' + waNumber;
+                    }
+                    whatsappEl.innerHTML = `<a href="https://wa.me/${formattedWA}" target="_blank">WhatsApp: ${contact.whatsapp}</a>`;
+                    whatsappEl.style.display = 'list-item';
+                }
+                
+                // Render social media links
+                renderSocialMedia(contact);
+                
+                // Apply branding colors
+                const branding = profile.branding || {};
+                if (branding.primary_color) {
+                    document.documentElement.style.setProperty('--neon-cyan', branding.primary_color);
+                }
+                
+                // Setup WhatsApp button
+                setupWhatsAppButton(contact);
+                
+                // Update SEO meta tags and structured data
+                updateSEO(profile, appData.offerings);
+            }
+            
+            // Render products
+            if (appData.offerings.length > 0) {
+                appData.filteredProducts = appData.offerings;
+                renderProducts();
+            }
+            
+            // Render additional sections
+            if (appData.additionalSections.length > 0) {
+                renderAdditionalSections();
+            }
+        }
+
+        function searchProducts(query) {
+            const searchTerm = query.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                appData.filteredProducts = appData.offerings;
+            } else {
+                appData.filteredProducts = appData.offerings.filter(product => {
+                    return (
+                        product.title.toLowerCase().includes(searchTerm) ||
+                        (product.description && product.description.toLowerCase().includes(searchTerm)) ||
+                        (product.price_label && product.price_label.toLowerCase().includes(searchTerm))
+                    );
+                });
+            }
+            
+            appData.currentPage = 1;
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noResults = document.getElementById('no-results');
+            
+            grid.innerHTML = '';
+            
+            if (appData.filteredProducts.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            
+            // Calculate pagination
+            const totalItems = appData.filteredProducts.length;
+            const totalPages = Math.ceil(totalItems / appData.itemsPerPage);
+            const startIndex = (appData.currentPage - 1) * appData.itemsPerPage;
+            const endIndex = startIndex + appData.itemsPerPage;
+            const currentItems = appData.filteredProducts.slice(startIndex, endIndex);
+            
+            // Render current page items
+            currentItems.forEach((product, index) => {
+                const card = createProductCard(product, index);
+                grid.appendChild(card);
+            });
+            
+            // Render pagination
+            renderPagination(totalPages, totalItems);
+            
+            // Re-init scroll reveal for new cards
+            setTimeout(() => {
+                document.querySelectorAll('[data-reveal]:not(.revealed)').forEach(el => {
+                    el.classList.add('revealed');
+                });
+            }, 100);
+        }
+
+        function createProductCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-reveal', '');
+            
+            let imageUrl = 'https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?w=400';
+            if (product.image_path) {
+                if (product.image_path.startsWith('http')) {
+                    imageUrl = product.image_path;
+                } else if (supabaseClient) {
+                    imageUrl = supabaseClient.storage
+                        .from('company-assets')
+                        .getPublicUrl(product.image_path).data.publicUrl;
+                }
+            }
+            
+            card.innerHTML = `
+                <img src="${imageUrl}" alt="${product.title}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?w=400'">
+                <div class="product-content">
+                    <span class="product-badge">Available</span>
+                    <h3 class="product-title">${product.title}</h3>
+                    <p class="product-description">${product.description || 'Premium quality product'}</p>
+                    <div class="product-footer">
+                        <span class="product-price">${product.price_label || 'Contact'}</span>
+                        <button class="btn-view" onclick='showProductModal(${JSON.stringify(product).replace(/'/g, "&apos;")})'>View</button>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function renderPagination(totalPages, totalItems) {
+            const pagination = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+            
+            let html = '';
+            
+            // Previous button
+            html += `
+                <button 
+                    class="pagination-btn" 
+                    onclick="changePage(${appData.currentPage - 1})"
+                    ${appData.currentPage === 1 ? 'disabled' : ''}
+                >
+                    ← Prev
+                </button>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (
+                    i === 1 || 
+                    i === totalPages || 
+                    (i >= appData.currentPage - 1 && i <= appData.currentPage + 1)
+                ) {
+                    html += `
+                        <button 
+                            class="pagination-btn ${i === appData.currentPage ? 'active' : ''}" 
+                            onclick="changePage(${i})"
+                        >
+                            ${i}
+                        </button>
+                    `;
+                } else if (i === appData.currentPage - 2 || i === appData.currentPage + 2) {
+                    html += '<span class="pagination-info">...</span>';
+                }
+            }
+            
+            // Next button
+            html += `
+                <button 
+                    class="pagination-btn" 
+                    onclick="changePage(${appData.currentPage + 1})"
+                    ${appData.currentPage === totalPages ? 'disabled' : ''}
+                >
+                    Next →
+                </button>
+            `;
+            
+            // Info
+            const startItem = (appData.currentPage - 1) * appData.itemsPerPage + 1;
+            const endItem = Math.min(appData.currentPage * appData.itemsPerPage, totalItems);
+            html += `<div class="pagination-info">Showing ${startItem}-${endItem} of ${totalItems}</div>`;
+            
+            pagination.innerHTML = html;
+        }
+
+        function changePage(page) {
+            appData.currentPage = page;
+            renderProducts();
+            
+            // Scroll to products section
+            document.getElementById('products').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        // Product Modal Functions
+        function showProductModal(product) {
+            const modal = document.getElementById('product-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalPrice = document.getElementById('modal-price');
+            const modalDescription = document.getElementById('modal-description');
+            const modalBadge = document.getElementById('modal-badge');
+            
+            // Get image URL
+            let imageUrl = 'https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?w=800';
+            if (product.image_path) {
+                if (product.image_path.startsWith('http')) {
+                    imageUrl = product.image_path;
+                } else if (supabaseClient) {
+                    imageUrl = supabaseClient.storage
+                        .from('company-assets')
+                        .getPublicUrl(product.image_path).data.publicUrl;
+                }
+            }
+            
+            // Update modal content
+            modalImage.src = imageUrl;
+            modalImage.alt = product.title;
+            modalTitle.textContent = product.title;
+            modalPrice.textContent = product.price_label || 'Contact for Price';
+            modalDescription.textContent = product.description || 'Premium quality product. Contact us for more information.';
+            modalBadge.textContent = 'Available';
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('product-modal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeProductModal();
+                    }
+                });
+            }
+            
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeProductModal();
+                }
+            });
+        });
+
+        function setupWhatsAppButton(contactInfo) {
+            const whatsappFloat = document.getElementById('whatsapp-float');
+            const whatsappLink = document.getElementById('whatsapp-link');
+            const ctaWhatsapp = document.getElementById('cta-whatsapp');
+            
+            if (!contactInfo || !contactInfo.whatsapp) {
+                // Hide buttons if no WhatsApp number
+                if (whatsappFloat) whatsappFloat.style.display = 'none';
+                if (ctaWhatsapp) ctaWhatsapp.style.display = 'none';
+                return;
+            }
+            
+            // Clean phone number (remove spaces, dashes, +)
+            let phoneNumber = contactInfo.whatsapp.replace(/[\s\-\+]/g, '');
+            
+            // Add country code if not present (assume Indonesia +62)
+            if (!phoneNumber.startsWith('62')) {
+                // Remove leading 0 if present
+                if (phoneNumber.startsWith('0')) {
+                    phoneNumber = '62' + phoneNumber.substring(1);
+                } else {
+                    phoneNumber = '62' + phoneNumber;
+                }
+            }
+            
+            // Create WhatsApp URL
+            const message = encodeURIComponent('Halo, saya tertarik dengan produk Anda');
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            // Update floating button
+            if (whatsappLink) {
+                whatsappLink.href = whatsappUrl;
+                whatsappFloat.style.display = 'block';
+            }
+            
+            // Update CTA button
+            if (ctaWhatsapp) {
+                ctaWhatsapp.href = whatsappUrl;
+                ctaWhatsapp.style.display = 'inline-flex';
+                ctaWhatsapp.target = '_blank';
+                ctaWhatsapp.rel = 'noopener noreferrer';
+            }
+        }
+
+        function renderSocialMedia(contactInfo) {
+            const socialContainer = document.getElementById('footer-social');
+            if (!socialContainer) return;
+            
+            const socialLinks = [];
+            
+            // Instagram
+            if (contactInfo.instagram) {
+                const igUsername = contactInfo.instagram.replace('@', '');
+                socialLinks.push({
+                    name: 'Instagram',
+                    url: `https://instagram.com/${igUsername}`,
+                    icon: '📷'
+                });
+            }
+            
+            // Facebook
+            if (contactInfo.facebook) {
+                const fbUsername = contactInfo.facebook.replace('@', '');
+                socialLinks.push({
+                    name: 'Facebook',
+                    url: contactInfo.facebook.startsWith('http') ? contactInfo.facebook : `https://facebook.com/${fbUsername}`,
+                    icon: '👥'
+                });
+            }
+            
+            // Twitter/X
+            if (contactInfo.twitter) {
+                const twitterUsername = contactInfo.twitter.replace('@', '');
+                socialLinks.push({
+                    name: 'Twitter',
+                    url: `https://twitter.com/${twitterUsername}`,
+                    icon: '🐦'
+                });
+            }
+            
+            // TikTok
+            if (contactInfo.tiktok) {
+                const tiktokUsername = contactInfo.tiktok.replace('@', '');
+                socialLinks.push({
+                    name: 'TikTok',
+                    url: `https://tiktok.com/@${tiktokUsername}`,
+                    icon: '🎵'
+                });
+            }
+            
+            // YouTube
+            if (contactInfo.youtube) {
+                socialLinks.push({
+                    name: 'YouTube',
+                    url: contactInfo.youtube.startsWith('http') ? contactInfo.youtube : `https://youtube.com/@${contactInfo.youtube}`,
+                    icon: '📺'
+                });
+            }
+            
+            // LinkedIn
+            if (contactInfo.linkedin) {
+                socialLinks.push({
+                    name: 'LinkedIn',
+                    url: contactInfo.linkedin.startsWith('http') ? contactInfo.linkedin : `https://linkedin.com/in/${contactInfo.linkedin}`,
+                    icon: '💼'
+                });
+            }
+            
+            // Render links
+            if (socialLinks.length > 0) {
+                socialContainer.innerHTML = socialLinks.map(link => 
+                    `<li><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.icon} ${link.name}</a></li>`
+                ).join('');
+            } else {
+                socialContainer.innerHTML = '<li style="color: var(--text-secondary); font-style: italic;">No social media links</li>';
+            }
+        }
+
+        function renderAdditionalSections() {
+            // Find target location (after testimonials, before CTA)
+            const ctaSection = document.querySelector('.cta-section');
+            
+            appData.additionalSections.forEach((section, index) => {
+                const sectionEl = createAdditionalSection(section, index);
+                if (sectionEl && ctaSection) {
+                    ctaSection.parentNode.insertBefore(sectionEl, ctaSection);
+                }
+            });
+        }
+
+        function createAdditionalSection(section, index) {
+            const content = section.content || {};
+            const sectionDiv = document.createElement('section');
+            sectionDiv.className = 'additional-section';
+            sectionDiv.style.padding = '8rem 0';
+            sectionDiv.setAttribute('data-reveal', '');
+            
+            // Handle different section types based on section_key
+            let innerHTML = '';
+            
+            // FAQ Section - Accordion style
+            if (section.section_key === 'faq' && content.items) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <div class="section-label">FAQ</div>
+                            <h2 class="section-title">${section.section_title || 'Frequently Asked Questions'}</h2>
+                        </div>
+                        <div class="faq-container">
+                            ${content.items.map((item, i) => `
+                                <div class="faq-item" data-reveal>
+                                    <div class="faq-question" onclick="toggleFaq(this)">
+                                        <span>${item.question || ''}</span>
+                                        <span class="faq-icon">▼</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        ${item.answer || ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            // Warranty/Benefits - Card grid style
+            else if ((section.section_key === 'warranty' || section.section_key === 'benefits') && content.items) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <div class="section-label">${section.section_key.toUpperCase()}</div>
+                            <h2 class="section-title">${section.section_title || section.section_key}</h2>
+                        </div>
+                        <div class="info-cards-grid">
+                            ${content.items.map(item => `
+                                <div class="info-card-item" data-reveal>
+                                    ${item.icon ? `<div class="info-card-icon">${item.icon}</div>` : ''}
+                                    <h3 class="info-card-title">${item.title || ''}</h3>
+                                    <p class="info-card-description">${item.description || ''}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            // Features Grid - 4 column layout dengan icon
+            else if (section.section_key === 'features' && content.items) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <div class="section-label">${section.section_key.toUpperCase()}</div>
+                            <h2 class="section-title">${section.section_title || 'Features'}</h2>
+                        </div>
+                        <div class="features-grid">
+                            ${content.items.map(item => `
+                                <div class="feature-card" data-reveal>
+                                    <div class="feature-icon">${item.icon || '✨'}</div>
+                                    <h3 class="feature-title">${item.title || ''}</h3>
+                                    <p class="feature-description">${item.description || ''}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            // Stats/Numbers - Big numbers showcase
+            else if (section.section_key === 'stats' && content.items) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <h2 class="section-title">${section.section_title || 'Our Numbers'}</h2>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                            ${content.items.map(item => `
+                                <div class="feature-card" data-reveal style="text-align: center;">
+                                    <div class="card-value" style="font-size: 3rem; margin-bottom: 1rem;">${item.value || ''}</div>
+                                    <h3 class="feature-title">${item.title || ''}</h3>
+                                    <p class="feature-description">${item.description || ''}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            // Generic items with title/description
+            else if (content.items && Array.isArray(content.items)) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <div class="section-label">${section.section_key.toUpperCase()}</div>
+                            <h2 class="section-title">${section.section_title || section.section_key}</h2>
+                        </div>
+                        <div class="info-cards-grid">
+                            ${content.items.map(item => `
+                                <div class="info-card-item" data-reveal>
+                                    ${item.icon ? `<div class="info-card-icon">${item.icon}</div>` : ''}
+                                    ${item.title ? `<h3 class="info-card-title">${item.title}</h3>` : ''}
+                                    ${item.description ? `<p class="info-card-description">${item.description}</p>` : ''}
+                                    ${item.question ? `<h3 class="info-card-title">${item.question}</h3>` : ''}
+                                    ${item.answer ? `<p class="info-card-description">${item.answer}</p>` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                        ${content.map ? `
+                            <div style="margin-top: 4rem;" data-reveal>
+                                <div style="text-align: center; margin-bottom: 2rem;">
+                                    <h3 style="color: var(--neon-cyan); font-size: 1.5rem; margin-bottom: 0.5rem;">${content.map.title || 'Lokasi Kami'}</h3>
+                                    <p style="color: var(--text-secondary);">${content.map.description || 'Temukan kami di peta'}</p>
+                                </div>
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid rgba(0, 243, 255, 0.2); box-shadow: 0 0 30px rgba(0, 243, 255, 0.1); max-width: 1000px; margin: 0 auto;">
+                                    <iframe 
+                                        src="${content.map.embed_url}" 
+                                        width="100%" 
+                                        height="450" 
+                                        style="border:0; display: block;" 
+                                        allowfullscreen="" 
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                                <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                    💡 Klik peta untuk membuka di Google Maps dan dapatkan petunjuk arah
+                                </p>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+            // Custom HTML/Text content
+            else if (content.html || content.text) {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <h2 class="section-title">${section.section_title || ''}</h2>
+                        </div>
+                        <div style="max-width: 800px; margin: 0 auto; color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">
+                            ${content.html || `<p>${content.text}</p>` || ''}
+                        </div>
+                    </div>
+                `;
+            }
+            // Fallback: display structure
+            else {
+                innerHTML = `
+                    <div class="container">
+                        <div class="section-header" data-reveal>
+                            <h2 class="section-title">${section.section_title || section.section_key}</h2>
+                        </div>
+                        <div style="max-width: 800px; margin: 0 auto;">
+                            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(0,243,255,0.1);">
+                                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Custom section content:</p>
+                                <pre style="overflow-x: auto; color: var(--neon-cyan); font-size: 0.9rem; line-height: 1.6;">${JSON.stringify(content, null, 2)}</pre>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            sectionDiv.innerHTML = innerHTML;
+            return sectionDiv;
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.add('hidden');
+        }
+
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function initHeaderScroll() {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Start app
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
